@@ -1,11 +1,25 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
+type WeatherData = {
+    location: {
+        name: string;
+    };
+    current: {
+        temp_c: number;
+        condition: {
+            text: string;
+            icon: string;
+        };
+    };
+};
+
 const API_KEY = '5a629d47155e4227a8d25517251206';
 const cities = ['Colombo', 'New York', 'London', 'Tokyo', 'Sydney'];
 
 function MultiCityWeather() {
-    const [weatherData, setWeatherData] = useState<any[]>([]);
+    const [weatherData, setWeatherData] = useState<WeatherData[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
