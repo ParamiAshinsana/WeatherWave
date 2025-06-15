@@ -1,5 +1,6 @@
 import TopBar from "./TopBar";
 import CurrentWeather from "./CurrentWeather";
+import MultiCityWeather from "./MultiCityWeather";
 
 function ContentArea() {
     return (
@@ -15,7 +16,7 @@ function ContentArea() {
                         <CurrentWeather />
                     </div>
                     <div className="border flex-1 bg-gray-100">Card 2</div>
-                    <div className="border flex-1 bg-gray-100">Card 3</div>
+                    <div className="border flex-1 bg-gray-100"><MultiCityWeather/></div>
                 </div>
 
                 <div className="flex flex-1 gap-4">
