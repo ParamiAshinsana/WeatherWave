@@ -2,6 +2,7 @@ import TopBar from "./TopBar";
 import CurrentWeather from "./CurrentWeather";
 import MultiCityWeather from "./MultiCityWeather";
 import WeatherForecast from "./WeatherForecast";
+import HourlyForecast from "./HourlyForecast";
 
 function ContentArea() {
     return (
@@ -22,7 +23,7 @@ function ContentArea() {
 
                 <div className="flex flex-1 gap-4">
                     <div className="border flex-1 bg-gray-100"><WeatherForecast/></div>
-                    <div className="border flex-1 bg-gray-100">Card 5</div>
+                    <div className="border flex-1 bg-gray-100"><HourlyForecast/></div>
                 </div>
             </div>
         </div>
