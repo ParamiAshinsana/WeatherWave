@@ -7,7 +7,7 @@ function Dashboard() {
             <div className="col-span-1 bg-gray-200 h-screen">
                 <SideBar />
             </div>
-            <div className="col-span-11 bg-white h-screen">
+            <div className="col-span-11 h-screen">
                 <ContentArea />
             </div>
         </div>

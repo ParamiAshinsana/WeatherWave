@@ -16,7 +16,7 @@ function ContentArea() {
 
             <div className="flex-1 flex flex-col gap-4 p-4 overflow-y-auto">
                 <div className="flex flex-1 gap-4">
-                    <div className="border flex-1 bg-gray-100">
+                    <div className="border flex-1">
                         <CurrentWeather city={city}/>
                     </div>
                     <div className="border flex-1 bg-gray-100">Card 2</div>
