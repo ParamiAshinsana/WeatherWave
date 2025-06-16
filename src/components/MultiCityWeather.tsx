@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-
 type WeatherData = {
     location: {
         name: string;
@@ -39,42 +38,50 @@ function MultiCityWeather() {
     }, []);
 
     return (
-        <div className="max-w-md mx-auto mt-6 p-4 bg-white dark:bg-gray-800 rounded-xl shadow">
-            <h2 className="text-xl font-semibold mb-4 text-center text-gray-800 dark:text-white">
-                World Weather
-            </h2>
+        <div className="relative max-w-md mx-auto mt-6 p-6 rounded-2xl overflow-hidden">
+            {/* Glass background layer */}
+            <div className="absolute inset-0 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20 shadow-2xl" />
 
-            {loading ? (
-                <p className="text-center text-sm text-gray-500 dark:text-gray-300">Loading...</p>
-            ) : (
-                <div className="space-y-3">
-                    {weatherData.map(({ location, current }) => (
-                        <div
-                            key={location.name}
-                            className="flex items-center justify-between p-3 bg-blue-50/50 dark:bg-blue-900/20 rounded-lg"
-                        >
-                            <div className="flex items-center gap-3">
-                                <img
-                                    src={current.condition.icon}
-                                    alt={current.condition.text}
-                                    className="w-8 h-8"
-                                />
-                                <div>
-                                    <h3 className="text-sm font-medium text-gray-700 dark:text-white">
-                                        {location.name}
-                                    </h3>
-                                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                                        {current.condition.text}
-                                    </p>
+            {/* Content */}
+            <div className="relative z-10">
+                <h2 className="text-xl font-semibold mb-6 text-center text-white">
+                    World Weather
+                </h2>
+
+                {loading ? (
+                    <div className="text-center py-4">
+                        <p className="text-white/80 animate-pulse">Loading weather data...</p>
+                    </div>
+                ) : (
+                    <div className="space-y-4">
+                        {weatherData.map(({ location, current }) => (
+                            <div
+                                key={location.name}
+                                className="flex items-center justify-between p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 hover:bg-white/15 transition-all duration-300"
+                            >
+                                <div className="flex items-center gap-4">
+                                    <img
+                                        src={current.condition.icon}
+                                        alt={current.condition.text}
+                                        className="w-10 h-10 drop-shadow-lg"
+                                    />
+                                    <div>
+                                        <h3 className="text-sm font-medium text-white">
+                                            {location.name}
+                                        </h3>
+                                        <p className="text-xs text-white/70">
+                                            {current.condition.text}
+                                        </p>
+                                    </div>
                                 </div>
+                                <p className="text-lg font-semibold text-blue-200">
+                                    {current.temp_c}°C
+                                </p>
                             </div>
-                            <p className="text-base font-semibold text-blue-600 dark:text-blue-400">
-                                {current.temp_c}°C
-                            </p>
-                        </div>
-                    ))}
-                </div>
-            )}
+                        ))}
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

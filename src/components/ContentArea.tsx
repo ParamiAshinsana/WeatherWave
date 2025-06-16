@@ -4,6 +4,7 @@ import CurrentWeather from "./CurrentWeather";
 import MultiCityWeather from "./MultiCityWeather";
 import WeatherForecast from "./WeatherForecast";
 import HourlyForecast from "./HourlyForecast";
+import UserLocationMap from "./UserLocationMap";
 
 function ContentArea() {
     const [city, setCity] = useState("Colombo");
@@ -19,13 +20,13 @@ function ContentArea() {
                     <div className="border flex-1">
                         <CurrentWeather city={city}/>
                     </div>
-                    <div className="border flex-1 bg-gray-100">Card 2</div>
-                    <div className="border flex-1 bg-gray-100"><MultiCityWeather/></div>
+                    <div className="border flex-1"><UserLocationMap/></div>
+                    <div className="border flex-1"><MultiCityWeather/></div>
                 </div>
 
                 <div className="flex flex-1 gap-4">
-                    <div className="border flex-1 bg-gray-100"><WeatherForecast/></div>
-                    <div className="border flex-1 bg-gray-100"><HourlyForecast/></div>
+                    <div className="border flex-1"><WeatherForecast/></div>
+                    <div className="border flex-1"><HourlyForecast/></div>
                 </div>
             </div>
         </div>
