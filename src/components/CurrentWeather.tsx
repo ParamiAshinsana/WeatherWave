@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+type CurrentWeatherProps = {
+    city: string;
+};
 type WeatherData = {
     location: {
         name: string;
@@ -19,21 +22,24 @@ type WeatherData = {
 
 const API_KEY = '5a629d47155e4227a8d25517251206';
 
-function CurrentWeather() {
+function CurrentWeather({ city }: CurrentWeatherProps) {
     const [weather, setWeather] = useState<WeatherData | null>(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get<WeatherData>(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=Colombo`)
+        setLoading(true);
+        axios.get<WeatherData>(`https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`)
             .then((res) => {
                 setWeather(res.data);
                 setLoading(false);
             })
             .catch((err) => {
                 console.error('Error fetching weather data:', err);
+                setWeather(null);
                 setLoading(false);
             });
-    }, []);
+    }, [city]);
+
 
     return (
         <div className="max-w-md mx-auto mt-10 p-6 rounded-2xl shadow-xl bg-white dark:bg-gray-800 transition-all">
