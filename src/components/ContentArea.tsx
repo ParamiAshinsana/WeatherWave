@@ -1,3 +1,4 @@
+import { useState } from "react";
 import TopBar from "./TopBar";
 import CurrentWeather from "./CurrentWeather";
 import MultiCityWeather from "./MultiCityWeather";
@@ -5,17 +6,18 @@ import WeatherForecast from "./WeatherForecast";
 import HourlyForecast from "./HourlyForecast";
 
 function ContentArea() {
+    const [city, setCity] = useState("Colombo");
     return (
         <div className="flex flex-col h-screen overflow-hidden">
             <div className="h-14 flex-none">
-                <TopBar />
+                <TopBar onSearch={setCity} />
             </div>
 
 
             <div className="flex-1 flex flex-col gap-4 p-4 overflow-y-auto">
                 <div className="flex flex-1 gap-4">
                     <div className="border flex-1 bg-gray-100">
-                        <CurrentWeather/>
+                        <CurrentWeather city={city}/>
                     </div>
                     <div className="border flex-1 bg-gray-100">Card 2</div>
                     <div className="border flex-1 bg-gray-100"><MultiCityWeather/></div>
