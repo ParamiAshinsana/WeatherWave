@@ -16,7 +16,7 @@ type WeatherData = {
 };
 
 const API_KEY = '5a629d47155e4227a8d25517251206';
-const cities = ['Colombo', 'New York', 'London', 'Tokyo', 'Sydney'];
+const cities = ['Jaffna', 'Gampaha', 'Nuwara Eliya', 'Ratnapura', 'Batticaloa'];
 
 function MultiCityWeather() {
     const [weatherData, setWeatherData] = useState<WeatherData[]>([]);
