@@ -12,7 +12,7 @@ function ContentArea() {
         <div className="flex h-screen overflow-hidden antialiased bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-950">
             <div className="flex-1 flex flex-col overflow-y-auto">
 
-                <div className="pt-5 h-48 bg-gradient-to-br from-blue-900/30 to-indigo-900/30 border-b border-white/10 flex flex-col justify-end pb-4">
+                <div className="pt-5 h-48 border-b border-white/10 flex flex-col justify-end pb-4">
                     <TopBar onSearch={setCity}/>
                 </div>
 
