@@ -4,7 +4,7 @@ import SideBar from "../components/SideBar";
 function Dashboard() {
     return (
         <div className="grid grid-cols-1 lg:grid-cols-12">
-            <div className="hidden lg:block lg:col-span-1 bg-gray-200 h-screen">
+            <div className="hidden lg:block lg:col-span-1 h-screen">
                 <SideBar />
             </div>
 
