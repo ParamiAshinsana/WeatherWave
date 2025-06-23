@@ -1,4 +1,4 @@
-import { MagnifyingGlassIcon, BellIcon } from "@heroicons/react/24/solid";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
 type TopBarProps = {
@@ -16,9 +16,11 @@ function TopBar({ onSearch }: TopBarProps) {
     };
 
     return (
-        <div className="flex items-center gap-4">
-            <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md m-4">
-                <MagnifyingGlassIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+        <div className="w-full max-w-2xl mx-auto px-4">
+            <div className="relative">
+                <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none z-10">
+                    <MagnifyingGlassIcon className="w-6 h-6 text-gray-300" />
+                </div>
                 <input
                     type="text"
                     name="search"
@@ -26,22 +28,8 @@ function TopBar({ onSearch }: TopBarProps) {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyPress}
-                    placeholder="Search for location"
-                    className="w-full bg-white/5 border border-glass-stroke placeholder-gray-400 text-black rounded-lg py-2 pl-10 pr-4 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-shadow"
-                />
-            </div>
-
-            <div className="flex items-center space-x-4 ml-auto mx-4 border">
-                <button
-                    aria-label="Notifications"
-                    className="p-2 rounded-full hover:bg-white/10 transition-colors"
-                >
-                    <BellIcon className="w-6 h-6 text-gray-300" />
-                </button>
-                <img
-                    src="https://picsum.photos/seed/user/40/40"
-                    alt="User Avatar"
-                    className="w-10 h-10 rounded-full border-2 border-blue-400"
+                    placeholder="Search city or location..."
+                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-gray-300 rounded-xl py-3 pl-12 pr-4 focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition-all text-lg shadow-lg"
                 />
             </div>
         </div>
@@ -49,5 +37,3 @@ function TopBar({ onSearch }: TopBarProps) {
 }
 
 export default TopBar;
-
-
