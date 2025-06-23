@@ -9,7 +9,7 @@ import {
 
 export default function Sidebar() {
     return (
-        <div className="h-screen w-16 bg-[#0D1C40] flex flex-col justify-between items-center py-6">
+        <div className="h-screen w-16 flex flex-col justify-between items-center py-6">
             {/* Top Icon */}
             <div className="flex flex-col items-center gap-6">
                 <Squares2X2Icon className="w-6 h-6 text-white cursor-pointer" />
