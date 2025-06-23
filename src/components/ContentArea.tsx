@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 import TopBar from "./TopBar";
 import CurrentWeather from "./CurrentWeather";
 import MultiCityWeather from "./MultiCityWeather";
@@ -9,27 +9,145 @@ import UserLocationMap from "./UserLocationMap";
 function ContentArea() {
     const [city, setCity] = useState("Colombo");
     return (
-        <div className="flex flex-col h-screen overflow-hidden">
+        // ####################################################################################
+        // <div className="flex flex-col h-screen overflow-hidden">
+        //     <div className="h-14 flex-none">
+        //         <TopBar onSearch={setCity}/>
+        //     </div>
+        //
+        //     <div className="flex-1 flex flex-col gap-4 p-4 overflow-y-auto">
+        //         {/* First row - stacks on mobile, flex row on larger screens */}
+        //         <div className="flex flex-col md:flex-row flex-1 gap-4">
+        //             <div className="border flex-1 min-h-[300px]">
+        //                 <CurrentWeather city={city}/>
+        //             </div>
+        //             <div className="border flex-1 min-h-[300px]">
+        //                 <UserLocationMap/>
+        //             </div>
+        //             <div className="border flex-1 min-h-[300px]">
+        //                 <MultiCityWeather/>
+        //             </div>
+        //         </div>
+        //
+        //         {/* Second row - stacks on mobile, flex row on larger screens */}
+        //         {/*<div className="flex flex-col md:flex-row flex-1 gap-4">*/}
+        //         {/*    <div className="border flex-1 min-h-[300px]">*/}
+        //         {/*        <WeatherForecast/>*/}
+        //         {/*    </div>*/}
+        //         {/*    <div className="border flex-1 min-h-[300px]">*/}
+        //         {/*        <HourlyForecast/>*/}
+        //         {/*    </div>*/}
+        //         {/*</div>*/}
+        //         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        //             <div className="min-h-[300px]">
+        //                 <WeatherForecast/>
+        //             </div>
+        //             <div className="min-h-[300px]">
+        //                 <HourlyForecast/>
+        //             </div>
+        //         </div>
+        //     </div>
+        // </div>
+    // ####################################################################################
+
+
+
+
+
+        // DEEP
+        // ***************************************************
+    <div className="flex h-screen overflow-hidden antialiased">
+        <div className="flex-1 flex flex-col overflow-y-auto">
+            {/* Fixed height top bar */}
             <div className="h-14 flex-none">
-                <TopBar onSearch={setCity} />
+                <TopBar onSearch={setCity}/>
             </div>
 
 
-            <div className="flex-1 flex flex-col gap-4 p-4 overflow-y-auto">
-                <div className="flex flex-1 gap-4">
-                    <div className="border flex-1">
+            {/* Main content area */}
+            <main className="border p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+                {/* Left Column (Current Weather & Forecast) */}
+                <div className="lg:col-span-1 flex flex-col gap-6">
+                    <div className="border min-h-[300px]">
                         <CurrentWeather city={city}/>
                     </div>
-                    <div className="border flex-1"><UserLocationMap/></div>
-                    <div className="border flex-1"><MultiCityWeather/></div>
+                    <div className="border min-h-[300px]">
+                        <WeatherForecast/>
+                    </div>
                 </div>
 
-                <div className="flex flex-1 gap-4">
-                    <div className="border flex-1"><WeatherForecast/></div>
-                    <div className="border flex-1"><HourlyForecast/></div>
+                {/* Right Column (Map, Multi-City, Hourly) */}
+                <div className="lg:col-span-2 flex flex-col gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="border min-h-[300px]">
+                            <UserLocationMap/>
+                        </div>
+                        <div className="border min-h-[300px]">
+                            <MultiCityWeather/>
+                        </div>
+                    </div>
+                    <div className="border min-h-[300px]">
+                        <HourlyForecast/>
+                    </div>
                 </div>
-            </div>
+            </main>
         </div>
+    </div>
+        // ****************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // AI
+    // <div className="flex h-screen overflow-hidden antialiased">
+    //
+    //     <div className="flex-1 flex flex-col overflow-y-auto">
+    //         <TopBar onSearch={setCity}/>
+    //         <main className="p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-3 gap-6 ">
+    //             {/* Left Column (Current Weather & Forecast) */}
+    //             <div className="lg:col-span-1 flex flex-col gap-6">
+    //                 <CurrentWeather city={city}/>
+    //                 <WeatherForecast/>
+    //             </div>
+    //
+    //             {/* Right Column (Map, Popular Cities, Summary Chart) */}
+    //             <div className="lg:col-span-2 flex flex-col gap-6">
+    //                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    //                     <UserLocationMap/>
+    //                     <MultiCityWeather/>
+    //                 </div>
+    //                 <HourlyForecast/>
+    //             </div>
+    //         </main>
+    //     </div>
+    // </div>
     );
 }
 
