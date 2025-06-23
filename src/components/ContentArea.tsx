@@ -4,7 +4,7 @@ import CurrentWeather from "./CurrentWeather";
 import MultiCityWeather from "./MultiCityWeather";
 import WeatherForecast from "./WeatherForecast";
 import HourlyForecast from "./HourlyForecast";
-import UserLocationMap from "./UserLocationMap";
+import UVIndex from "./UVIndex.tsx";
 
 function ContentArea() {
     const [city, setCity] = useState("Colombo");
@@ -30,7 +30,7 @@ function ContentArea() {
                     <div className="lg:col-span-2 flex flex-col gap-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="rounded-xl overflow-hidden">
-                                <UserLocationMap/>
+                                <UVIndex/>
                             </div>
                             <div className="rounded-xl overflow-hidden">
                                 <MultiCityWeather/>
