@@ -29,7 +29,7 @@ function TopBar({ onSearch }: TopBarProps) {
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={handleKeyPress}
                     placeholder="Search city or location..."
-                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-gray-300 rounded-xl py-3 pl-12 pr-4 focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition-all text-lg shadow-lg"
+                    className="w-full bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder-gray-10 placeholder:text-base rounded-xl py-3 pl-12 pr-4 focus:ring-2 focus:ring-blue-400 focus:border-transparent outline-none transition-all text-lg shadow-lg"
                 />
             </div>
         </div>
