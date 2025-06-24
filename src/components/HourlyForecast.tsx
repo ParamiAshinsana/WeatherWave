@@ -223,6 +223,30 @@ import {
 
 const API_KEY = '5a629d47155e4227a8d25517251206';
 
+interface HourlyWeatherData {
+    time: string;
+    temp_c: number;
+    condition: string;
+    is_day: boolean;
+    chance_of_rain: number;
+}
+
+interface WeatherApiResponse {
+    forecast: {
+        forecastday: Array<{
+            hour: Array<{
+                time: string;
+                temp_c: number;
+                condition: {
+                    text: string;
+                };
+                is_day: number;
+                chance_of_rain: number;
+            }>;
+        }>;
+    };
+}
+
 const WeatherIcon = ({ condition }: { condition: string }) => {
     const lowerCondition = condition.toLowerCase();
 
@@ -242,7 +266,7 @@ const WeatherIcon = ({ condition }: { condition: string }) => {
 };
 
 export default function HourlyForecastCards({ city = "Colombo" }: { city?: string }) {
-    const [data, setData] = useState<any[]>([]);
+    const [data, setData] = useState<HourlyWeatherData[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -250,16 +274,16 @@ export default function HourlyForecastCards({ city = "Colombo" }: { city?: strin
         try {
             setLoading(true);
             setError(null);
-            const response = await axios.get(
+            const response = await axios.get<WeatherApiResponse>(
                 `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=1`
             );
 
-            const hourly = response.data.forecast.forecastday[0].hour.map(
-                (hourData: any) => ({
+            const hourly: HourlyWeatherData[] = response.data.forecast.forecastday[0].hour.map(
+                (hourData) => ({
                     time: hourData.time.split(' ')[1].slice(0, 5),
                     temp_c: Math.round(hourData.temp_c),
                     condition: hourData.condition.text,
-                    is_day: hourData.is_day,
+                    is_day: hourData.is_day === 1,
                     chance_of_rain: hourData.chance_of_rain,
                 })
             );
@@ -321,7 +345,7 @@ export default function HourlyForecastCards({ city = "Colombo" }: { city?: strin
             )}
 
             <div className="flex flex-col space-y-4 h-full">
-
+                {/* First Row */}
                 <div className="w-full overflow-x-auto pb-2">
                     <div className="flex space-x-4 min-w-max">
                         {firstRow.map((hour, index) => (
@@ -351,7 +375,7 @@ export default function HourlyForecastCards({ city = "Colombo" }: { city?: strin
                     </div>
                 </div>
 
-
+                {/* Second Row */}
                 <div className="w-full overflow-x-auto pb-2">
                     <div className="flex space-x-4 min-w-max">
                         {secondRow.map((hour, index) => (

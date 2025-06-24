@@ -4,8 +4,27 @@ import { ArrowPathIcon, ExclamationTriangleIcon } from '@heroicons/react/24/soli
 
 const API_KEY = '5a629d47155e4227a8d25517251206';
 
+interface ForecastDay {
+    date: string;
+    day: {
+        condition: {
+            text: string;
+            icon: string;
+        };
+        avgtemp_c: number;
+        maxtemp_c: number;
+        mintemp_c: number;
+    };
+}
+
+interface WeatherApiResponse {
+    forecast: {
+        forecastday: ForecastDay[];
+    };
+}
+
 function WeatherForecast({ city = "Colombo" }: { city?: string }) {
-    const [forecast, setForecast] = useState<any[]>([]);
+    const [forecast, setForecast] = useState<ForecastDay[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
@@ -13,7 +32,7 @@ function WeatherForecast({ city = "Colombo" }: { city?: string }) {
         try {
             setLoading(true);
             setError(null);
-            const response = await axios.get(
+            const response = await axios.get<WeatherApiResponse>(
                 `https://api.weatherapi.com/v1/forecast.json?key=${API_KEY}&q=${city}&days=7`
             );
             setForecast(response.data.forecast.forecastday);
