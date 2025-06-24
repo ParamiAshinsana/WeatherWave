@@ -18,8 +18,15 @@ function TopBar({ onSearch }: TopBarProps) {
     return (
         <div className="w-full max-w-2xl mx-auto px-4">
             <div className="relative">
+                {/*<div className="flex-shrink-0 mr-4">*/}
+                {/*    <img*/}
+                {/*        src={logo}*/}
+                {/*        alt="Weather App Logo"*/}
+                {/*        className="h-12 w-auto sm:h-16 md:h-20 lg:h-44 transition-all duration-300 hover:scale-105"*/}
+                {/*    />*/}
+                {/*</div>*/}
                 <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none z-10">
-                    <MagnifyingGlassIcon className="w-6 h-6 text-gray-300" />
+                    <MagnifyingGlassIcon className="w-6 h-6 text-gray-300"/>
                 </div>
                 <input
                     type="text"
