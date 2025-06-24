@@ -294,6 +294,35 @@ function UVIndex({ city = "Colombo" }: { city?: string }) {
                                 <span>Extreme</span>
                             </div>
                         </div>
+
+                        <div className="mt-4">
+                            <h3 className="text-sm font-medium text-white/80 mb-1">UV Level Indicator</h3>
+                            <div className="w-full h-4 bg-gray-700 rounded-full overflow-hidden">
+                                <div
+                                    className="h-full"
+                                    style={{
+                                        width: `${(uvIndex / 11) * 100}%`,
+                                        background: `linear-gradient(to right, 
+                                                          #10b981 0%, 
+                                                          #10b981 18%, 
+                                                          #f59e0b 18%, 
+                                                          #f59e0b 45%, 
+                                                          #f97316 45%, 
+                                                          #f97316 63%, 
+                                                          #ef4444 63%, 
+                                                          #ef4444 90%, 
+                                                          #8b5cf6 90%)`
+                                    }}
+                                />
+                            </div>
+                            <div className="flex justify-between text-xs text-white/60 mt-1">
+                                <span>0</span>
+                                <span>3</span>
+                                <span>6</span>
+                                <span>8</span>
+                                <span>11+</span>
+                            </div>
+                        </div>
                     </div>
                 </>
             )}
