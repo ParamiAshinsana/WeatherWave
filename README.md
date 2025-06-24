@@ -1,54 +1,75 @@
-# React + TypeScript + Vite
+# 🌦️ WeatherWave - Modern Weather Dashboard
+![Screenshot 2025-06-24 131428](https://github.com/user-attachments/assets/1cc0417e-b96b-43cd-815d-3ed16f0cc72f)
+![Screenshot 2025-06-24 131632](https://github.com/user-attachments/assets/7cd47196-6354-43d0-aebb-881cfacf430a)
+![Screenshot 2025-06-24 131735](https://github.com/user-attachments/assets/d02a9cb1-6e8d-4344-9139-dcf3e6ca2a86)
+![Screenshot 2025-06-24 090817](https://github.com/user-attachments/assets/999479da-efbf-4974-b6d8-f3dea23433b3)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Live Demo  
+[View Live Deployment](https://weather-wave25.netlify.app/)
 
-Currently, two official plugins are available:
+## ✨ Features
+- Real-time weather data for any location
+- Beautiful glass-morphism UI
+- 7-day forecast & hourly predictions
+- Advanced metrics (UV, AQI, precipitation)
+- Astronomy data (sun/moon phases)
+- Responsive on all devices
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Technologies
+- ⚡ React 18 + Vite
+- 🎨 Tailwind CSS with Glass Morphism
+- 🌐 WeatherAPI.com
+- 📊 Recharts for data visualization
+- 🧭 React Router for navigation
+- 🔄 Heroicons for beautiful icons
 
-## Expanding the ESLint configuration
+## 🖥️ Screenshots
+| Desktop | Mobile |
+|---------|--------|
+| ![Screenshot 2025-06-24 132317](https://github.com/user-attachments/assets/c32119fc-361f-4591-b45d-c69dd06f2005) | ![WhatsApp Image 2025-06-24 at 13 21 30_0235f393](https://github.com/user-attachments/assets/3dc9817a-24f8-4289-afdf-c99dd6fd8e64) |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠 Setup Instructions
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerequisites
+- Node.js ≥16
+- npm
+- WeatherAPI.com key (free tier available)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/your-username/WeatherWave.git](https://github.com/ParamiAshinsana/WeatherWave)
+   cd WeatherWave
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+3. Run development server:
+   ```bash
+   npm run dev
+   ```
+## 📂 Project Structure
+   ```bash
+     src/
+  ├── assets/                         # Images & icons
+  ├── components/                     # Reusable components
+  │   ├── ContentArea.tsx/            # all components
+  │   └── CurrentWeather.tsx/         # current weather visualization
+  │   ├── HourlyForecastCards.tsx/    # hourly forecast visualization
+  │   └── MultiCityWeather.tsx/       # multi cities weather visualization
+  │   ├── Sidebar.tsx/                # sidebar
+  │   └── TopBar.tsx/                 # topbar
+  │   ├── UVIndex.tsx/                # uv index visualization
+  │   └── WeatherForecast.tsx/        # 7 days weather visualization
+  ├── pages/                          # Main views
+  │   ├── Dashboard.tsx/              # dashboard
+  │   └── CardPages.tsx/              # other ui elements
+  └── App.tsx                         # Main entry point
+   ```
+## ✉️ Contact
+paramiashinsana@gmail.com
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+
+   
