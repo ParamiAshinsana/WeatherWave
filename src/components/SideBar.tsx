@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     HomeIcon,
     ChartBarIcon,
@@ -17,7 +18,9 @@ export default function Sidebar() {
                 {/* Navigation Icons */}
                 <div className="flex flex-col gap-6 mt-8">
                     <HomeIcon className="w-6 h-6 text-white hover:text-blue-400 cursor-pointer" />
+                    <Link to="/cards">
                     <ChartBarIcon className="w-6 h-6 text-white hover:text-blue-400 cursor-pointer" />
+                    </Link>
                     <Cog6ToothIcon className="w-6 h-6 text-white hover:text-blue-400 cursor-pointer" />
                 </div>
             </div>
