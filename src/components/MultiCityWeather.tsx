@@ -49,7 +49,7 @@ function MultiCityWeather() {
     return (
         <div className="w-full h-full p-4 bg-white/5 backdrop-blur-sm rounded-xl">
             <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold text-white">7Cities</h2>
+                <h2 className="text-xl font-bold text-white">Cities</h2>
                 <button
                     onClick={fetchWeather}
                     disabled={loading}
