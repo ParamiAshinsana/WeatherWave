@@ -31,7 +31,7 @@ type WeatherData = {
     };
 };
 
-const API_KEY = '5a629d47155e4227a8d25517251206';
+const API_KEY = '4c88003c7a8c4a09acc123615252606';
 
 function CurrentWeather({ city }: CurrentWeatherProps) {
     const [weather, setWeather] = useState<WeatherData | null>(null);

@@ -153,7 +153,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { SunIcon, ArrowPathIcon, ExclamationTriangleIcon } from '@heroicons/react/24/solid';
 
-const API_KEY = '5a629d47155e4227a8d25517251206';
+const API_KEY = '4c88003c7a8c4a09acc123615252606';
 
 function UVIndex({ city = "Colombo" }: { city?: string }) {
     const [weatherData, setWeatherData] = useState<any>(null);
